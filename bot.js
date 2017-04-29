@@ -6,14 +6,14 @@ const Discord = require('discord.js');
 const express = require('express');
 
 const mailChimp = require('./mailChimp');
-const secrets = require('./secrets/secrets');
 
 const client = new Discord.Client();
 const app = express();
+const env = process.env;
 
 // Set up basic server stuff so the app runs
 // -----------------------------------------
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (env.PORT || 3000));
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
@@ -61,4 +61,4 @@ client.on('message', (message) => {
   }
 });
 
-client.login(secrets.discord_client_id);
+client.login(env.DISCORD_CLIENT_ID);

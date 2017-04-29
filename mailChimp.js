@@ -3,14 +3,14 @@ module.exports = {
 };
 
 const request = require('request');
-const secrets = require('./secrets/secrets.js');
+const env = process.env;
 
 function subscribeUser(email, callback) {
   // Add user to Sheep Tag Subscribers
-  addUserToList(email, secrets.sheep_tag_list_id);
+  addUserToList(email, env.SHEEP_TAG_LIST_ID);
 
   // Add user to Luna Wolf Newsletter
-  addUserToList(email, secrets.newsletter_list_id);
+  addUserToList(email, env.NEWSLETTER_LIST_ID);
 
   callback(true);
 }
@@ -28,7 +28,7 @@ function addUserToList(email, listID) {
       method: 'POST',
       uri: url,
       headers: {
-        'Authorization' : `apikey ${secrets.mailchimp_api_key}`
+        'Authorization' : `apikey ${env.MAILCHIMP_API_KEY}`
       },
       json: true,
       body: {

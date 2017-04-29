@@ -5,8 +5,7 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "secrets": "mkdir secrets && touch ./secrets/secrets.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sam Galizia",
   "license": "MIT",
@@ -14,8 +13,6 @@
     "discord.js": "^11.0.0",
     "email-validator": "^1.0.7",
     "express": "^4.15.2",
-    "google-auth-library": "^0.10.0",
-    "googleapis": "^19.0.0",
     "lodash": "^4.17.4",
     "request": "^2.81.0"
   },
